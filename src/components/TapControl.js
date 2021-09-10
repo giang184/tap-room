@@ -1,11 +1,11 @@
 import React from 'react';
 import NewTapForm from './NewTapForm';
-// import TapList from './TapList';
-// import TapDetail from './TapDetail';
-// import EditTapForm from './EditTapForm';
+import TapList from './TapList';
+import TapDetail from './TapDetail';
+import EditTapForm from './EditTapForm';
 // import Cart from './Cart';
 
-class MerchControl extends React.Component {
+class TapControl extends React.Component {
 
   constructor(props) {
     super(props);
@@ -13,32 +13,32 @@ class MerchControl extends React.Component {
       formVisibleOnPage: false,
       masterTapList: [],
       selectedTap: null,
-      // editing: false,
-      // cart: []
+      editing: false,
+
     };
   }
 
-  // handleBuyingMerch = (merch) => {
-  //   if (merch.quantity > 0) {
-  //     merch.quantity--;
-  //     const newMerch = this.state.cart.filter(m => m.id === this.state.selectedMerch.id)[0];
-  //     const newCart = this.state.cart.filter(m => m.id !== this.state.selectedMerch.id);
-  //     console.log('newMerch', newMerch);
+  // handleBuyingTap = (tap) => {
+  //   if (tap.quantity > 0) {
+  //     tap.quantity--;
+  //     const newTap = this.state.cart.filter(m => m.id === this.state.selectedTap.id)[0];
+  //     const newCart = this.state.cart.filter(m => m.id !== this.state.selectedTap.id);
+  //     console.log('newTap', newTap);
   //     console.log('newCart', newCart)
-  //     if(newMerch) {
-  //       newMerch.quantity++;
-  //       newCart.push(newMerch);
+  //     if(newTap) {
+  //       newTap.quantity++;
+  //       newCart.push(newTap);
   //       console.log('newCartTrue', newCart)
   //     } else {
-  //       const newMerch0 = {...merch};
-  //       newMerch0.quantity = 1;
-  //       newCart.push(newMerch0);
-  //       console.log('newMerch0', newMerch0)
+  //       const newTap0 = {...tap};
+  //       newTap0.quantity = 1;
+  //       newCart.push(newTap0);
+  //       console.log('newTap0', newTap0)
   //       console.log('newCartFalse', newCart)
   //     }
   //     this.setState({
   //       cart: newCart,
-  //       selectedMerch: merch,
+  //       selectedTap: tap,
   //     });
   //   } else {
   //     alert('OUT OF STOCK!!!!!!');
@@ -72,88 +72,89 @@ class MerchControl extends React.Component {
     });
   }
 
-  // handleChangingSelectedMerch = (id) => {
-  //   const selectedMerch = this.state.masterMerchList.filter(merch => merch.id === id)[0];
-  //   this.setState({selectedMerch: selectedMerch});
+  // handleChangingSelectedTap = (id) => {
+  //   const selectedTap = this.state.masterTapList.filter(tap => tap.id === id)[0];
+  //   this.setState({selectedTap: selectedTap});
   // }
 
-  // handleDeletingMerch = (id) => {
-  //   const newMasterMerchList = this.state.masterMerchList.filter(merch => merch.id !== id);
+  // handleDeletingTap = (id) => {
+  //   const newMasterTapList = this.state.masterTapList.filter(tap => tap.id !== id);
   //   this.setState({
-  //     masterMerchList: newMasterMerchList,
-  //     selectedMerch: null
+  //     masterTapList: newMasterTapList,
+  //     selectedTap: null
   //   });
   // }
 
-  // handleEditingMerchInList = (merchToEdit) => {
-  //   const editedMasterMerchList = this.state.masterMerchList
-  //     .filter(merch => merch.id !== this.state.selectedMerch.id)
-  //     .concat(merchToEdit);
+  // handleEditingTapInList = (tapToEdit) => {
+  //   const editedMasterTapList = this.state.masterTapList
+  //     .filter(tap => tap.id !== this.state.selectedTap.id)
+  //     .concat(tapToEdit);
   //   this.setState({
-  //       masterMerchList: editedMasterMerchList,
+  //       masterTapList: editedMasterTapList,
   //       editing: false,
-  //       selectedMerch: null
+  //       selectedTap: null
   //     });
   //     console.log('cart', this.state.cart)
   // }
   
-  // handleRestockingMerch = (merchToEdit) => {
-  //   const editedMasterMerchList = this.state.masterMerchList
-  //   .filter(merch => merch.id !== this.state.selectedMerch.id)
-  //   .concat(merchToEdit);
+  // handleRestockingTap = (tapToEdit) => {
+  //   const editedMasterTapList = this.state.masterTapList
+  //   .filter(tap => tap.id !== this.state.selectedTap.id)
+  //   .concat(tapToEdit);
   // this.setState({
-  //     masterMerchList: editedMasterMerchList,
+  //     masterTapList: editedMasterTapList,
   //     editing: false,
-  //     selectedMerch: merchToEdit
+  //     selectedTap: tapToEdit
   //   });
   // }
 
 
   render(){
     let empty = null;
-    if (this.state.masterMerchList.length === 0) {
-      empty = <h1>NO MERCH YET</h1>
+    if (this.state.masterTapList.length === 0) {
+      empty = <em>NO TAP ADDED YET</em>
     }
       
     let currentlyVisibleState = null;
     let buttonText = null;
     
     if (this.state.editing) {
-      currentlyVisibleState = <EditMerchForm 
-        merch = {this.state.selectedMerch} 
-        onEditMerch = {this.handleEditingMerchInList} />
-      buttonText = "Return to Merch List";
-    } else if (this.state.selectedMerch != null) {
-      currentlyVisibleState = <MerchDetail 
-        merch = {this.state.selectedMerch}
-        onClickingBuy={this.handleBuyingMerch}
-        onClickingDelete={this.handleDeletingMerch}
-        onClickingEdit={this.handleEditClick}
-        onClickingRestock= {this.handleRestockingMerch}
+      currentlyVisibleState = <EditTapForm 
+        // tap = {this.state.selectedTap} 
+        // onEditTap = {this.handleEditingTapInList} 
+        />
+      buttonText = "Return to Tap List";
+    } else if (this.state.selectedTap != null) {
+      currentlyVisibleState = <TapDetail 
+        // tap = {this.state.selectedTap}
+        // onClickingBuy={this.handleBuyingTap}
+        // onClickingDelete={this.handleDeletingTap}
+        // onClickingEdit={this.handleEditClick}
+        // onClickingRestock= {this.handleRestockingTap}
       />
-      buttonText= "Return to Merch List";
+      buttonText= "Return to Tap List";
     } else if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewMerchForm onNewMerchCreation={this.handleAddingNewMerch} />
-      buttonText = "Return to Merch List"
+      currentlyVisibleState = <NewTapForm onNewTapCreation={this.handleAddingNewTap} />
+      buttonText = "Return to Tap List"
     } else {
-      currentlyVisibleState = <MerchList MerchList={this.state.masterMerchList} onMerchSelection={this.handleChangingSelectedMerch} />;
-      buttonText = "Add Merch"
+      currentlyVisibleState = <TapList TapList={this.state.masterTapList} onTapSelection={this.handleChangingSelectedTap} />;
+      buttonText = "Add Tap"
     }
     return (
       <React.Fragment>
         <div className="row">
           <div className='col-6'>
-            <h1>Merchandise Stock</h1>
+            <h1>Tap Stock</h1>
             {empty}
             {currentlyVisibleState}
             <button className ="btn btn-primary" onClick={this.handleClick}>{buttonText}</button>
           </div>
           <div className='col-3'>
           </div>
-          <div className='col-3'>
+          {/* <div className='col-3'>
           <h1>Cart: </h1>
-            <Cart selectedMerch={this.state.selectedMerch} cart={this.state.cart}/>
-          </div>
+            <Cart selectedTap={this.state.selectedTap} cart={this.state.cart}/>
+          </div> */}
 
         </div>
       </React.Fragment>
@@ -161,4 +162,4 @@ class MerchControl extends React.Component {
   }
 }
 
-export default MerchControl;
+export default TapControl;
