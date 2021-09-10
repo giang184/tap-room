@@ -16,6 +16,7 @@ function TapDetail(props) {
 
   return (
     <React.Fragment>
+      <h2>Keg Details:</h2>
       <div class="card">
         <div class="card-header">
           <h3>{tap.name}</h3>
@@ -45,6 +46,7 @@ function TapDetail(props) {
           Sell 1
       </button>
       <hr/>
+      <h2>Restock keg:</h2>
       <form onSubmit={handleRestockTapSubmission}>
         <input
           className="form-control"

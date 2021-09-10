@@ -103,7 +103,7 @@ class TapControl extends React.Component {
         tap = {this.state.selectedTap} 
         onEditTap = {this.handleEditingTapInList} 
         />
-      buttonText = "Return to Tap List";
+      buttonText = "Return to Beer List";
     } 
     else if (this.state.selectedTap != null) {
       currentlyVisibleState = <TapDetail 
@@ -113,11 +113,11 @@ class TapControl extends React.Component {
         onClickingEdit={this.handleEditClick}
         onClickingRestock= {this.handleRestockingTap}
       />
-      buttonText= "Return to Tap List";
+      buttonText= "Return to Beer List";
     } 
     else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewTapForm onNewTapCreation={this.handleAddingNewTap} />
-      buttonText = "Return to Tap List"
+      buttonText = "Return to Beer List"
     } 
     else {
       currentlyVisibleState = <TapList 
@@ -125,7 +125,7 @@ class TapControl extends React.Component {
         tapList = {this.state.masterTapList} 
         onTapSelection={this.handleChangingSelectedTap} 
         />;
-      buttonText = "Add Tap"
+      buttonText = "Add New Keg"
     }
     return (
       <React.Fragment>
