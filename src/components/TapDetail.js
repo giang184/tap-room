@@ -16,11 +16,19 @@ function TapDetail(props) {
 
   return (
     <React.Fragment>
-      <h1>{tap.name}</h1>
-      <h6>Brand: {tap.brand}</h6>
-      <h6>Pints Available: {quantity} {almostEmpty}</h6>
-      <h6>Price: ${tap.price}</h6>
-      <h6>Alcohol Content: {tap.alcoholContent}%</h6>
+      <div class="card">
+        <div class="card-header">
+          <h3>{tap.name}</h3>
+        </div>
+        <div class="card-body">
+          <p>Brand: <strong>{tap.brand}</strong></p>
+          <p>Pints Available: <strong>{quantity} {almostEmpty}</strong></p>
+          <p>Alcohol Content = <strong>{tap.alcoholContent}%</strong></p>
+        </div>
+        <div class="card-footer text-muted">
+          <p>Price: <strong>${tap.price}</strong></p>
+        </div>
+      </div>
       <button 
         onClick={ props.onClickingEdit }
         className="btn btn-warning">

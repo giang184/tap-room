@@ -8,12 +8,19 @@ function Tap(props) {
   return (
     <React.Fragment>
       <div onClick = {() => props.whenTapClicked(props.id)}>
-        <h3>{props.name}</h3>
-        <p>Brand: {props.brand}</p>
-        <p>Pints Available: {quantity} <strong>{almostEmpty}</strong></p>
-        <p>Price: ${props.price}</p>
-        <p>Alcohol Content = {props.alcoholContent}%</p>
-        <hr />
+        <div class="card">
+          <div class="card-header">
+            <h3>{props.name}</h3>
+          </div>
+          <div class="card-body">
+              <p>Brand: <strong>{props.brand}</strong></p>
+              <p>Pints Available: <strong>{quantity} {almostEmpty}</strong></p>
+              <p>Alcohol Content = <strong>{props.alcoholContent}%</strong></p>
+          </div>
+          <div class="card-footer text-muted">
+              <p>Price: <strong>${props.price}</strong></p>
+          </div>
+        </div>
       </div>
     </React.Fragment>
   )

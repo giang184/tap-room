@@ -12,36 +12,22 @@ function ReusableForm(props) {
     <>
       <h2>Add a new Keg:</h2>
       <form onSubmit={props.formSubmissionHandler}>
-        <input
-          className="form-control"
-          type='text'
-          name='name'
-          placeholder='Name' 
-          defaultValue={startingName}/>
-        <input
-          className="form-control"
-          type='text'
-          name='brand'
-          placeholder='brand' 
-          defaultValue={startingBrand}/>
-        <input
-          className="form-control"
-          type='number'
-          name='quantity'
-          placeholder='# of pints' 
-          defaultValue={startingQuantity}/>
-        <input
-          className="form-control"
-          type='number'
-          name='price'
-          placeholder='price' 
-          defaultValue={startingPrice}/>
-        <input
-          className="form-control"
-          type='number'
-          name='alcoholContent'
-          placeholder='alcohol content' 
-          defaultValue={startingAlcoholContent}/>
+        <label>Name: --------------
+          <input type='text' name='name' defaultValue={startingName} />
+        </label>
+        <label>Brand: -------------- 
+          <input type='text' name='brand' defaultValue={startingBrand}/>
+        </label>
+        <label># of pints: ----------
+          <input type='text' name='quantity' defaultValue={startingQuantity}/>
+        </label>
+        <label>Alcohol %: ---------
+          <input type='text' name='alcoholContent' defaultValue={startingAlcoholContent} />
+        </label>
+        <label>Price: ---------------
+          <input type='text' name='price' defaultValue={startingPrice}/>
+        </label>
+        <br/>
           <button className="btn btn-warning" type='submit'>{props.buttonText}</button>
       </form>
     </>

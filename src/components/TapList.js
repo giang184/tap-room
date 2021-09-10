@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 function TapList(props){
   return (
     <React.Fragment>
-      <h1>Tap Stock</h1>
+      <h1>Beers on Tap:</h1>
       <p><em>{props.empty}</em></p>
       <br/>
       {props.tapList.map((tap) =>

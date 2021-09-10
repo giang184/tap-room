@@ -24,5 +24,10 @@ button {
 }
 
 input {
-  margin-bottom: 5px;
+  margin: 5px;
+}
+
+.card {
+  margin-bottom: 10px;
+  max-width: 400px;
 }

@@ -131,7 +131,7 @@ class TapControl extends React.Component {
       <React.Fragment>
         <div class="container">
           <div className="row">
-            <div className='col-4'>
+            <div className='col-5'>
               {currentlyVisibleState}
               <button className ="btn btn-primary" onClick={this.handleClick}>{buttonText}</button>
             </div>
