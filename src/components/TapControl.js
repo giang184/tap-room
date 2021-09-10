@@ -2,7 +2,7 @@ import React from 'react';
 import NewTapForm from './NewTapForm';
 import TapList from './TapList';
 import TapDetail from './TapDetail';
-// import EditTapForm from './EditTapForm';
+import EditTapForm from './EditTapForm';
 // import Cart from './Cart';
 
 class TapControl extends React.Component {
@@ -85,17 +85,17 @@ class TapControl extends React.Component {
     });
   }
 
-  // handleEditingTapInList = (tapToEdit) => {
-  //   const editedMasterTapList = this.state.masterTapList
-  //     .filter(tap => tap.id !== this.state.selectedTap.id)
-  //     .concat(tapToEdit);
-  //   this.setState({
-  //       masterTapList: editedMasterTapList,
-  //       editing: false,
-  //       selectedTap: null
-  //     });
-  //     console.log('cart', this.state.cart)
-  // }
+  handleEditingTapInList = (tapToEdit) => {
+    const editedMasterTapList = this.state.masterTapList
+      .filter(tap => tap.id !== this.state.selectedTap.id)
+      .concat(tapToEdit);
+    this.setState({
+        masterTapList: editedMasterTapList,
+        editing: false,
+        selectedTap: null
+      });
+      console.log('cart', this.state.cart)
+  }
   
   handleRestockingTap = (tapToEdit) => {
     const editedMasterTapList = this.state.masterTapList
@@ -113,16 +113,19 @@ class TapControl extends React.Component {
       
     let currentlyVisibleState = null;
     let buttonText = null;
+    let empty = null;
+    if (this.state.masterTapList.length === 0) {
+      empty = "NO MERCH YET";
+    }
     
-    // if (this.state.editing) {
-    //   currentlyVisibleState = <EditTapForm 
-    //     // tap = {this.state.selectedTap} 
-    //     // onEditTap = {this.handleEditingTapInList} 
-    //     />
-    //   buttonText = "Return to Tap List";
-    // } 
-    // else 
-    if (this.state.selectedTap != null) {
+    if (this.state.editing) {
+      currentlyVisibleState = <EditTapForm 
+        tap = {this.state.selectedTap} 
+        onEditTap = {this.handleEditingTapInList} 
+        />
+      buttonText = "Return to Tap List";
+    } 
+    else if (this.state.selectedTap != null) {
       currentlyVisibleState = <TapDetail 
         tap = {this.state.selectedTap}
         // onClickingBuy={this.handleBuyingTap}
@@ -138,6 +141,7 @@ class TapControl extends React.Component {
     } 
     else {
       currentlyVisibleState = <TapList 
+        empty = {empty}
         tapList = {this.state.masterTapList} 
         onTapSelection={this.handleChangingSelectedTap} 
         />;
@@ -145,19 +149,19 @@ class TapControl extends React.Component {
     }
     return (
       <React.Fragment>
-        <div className="row">
-          <div className='col-6'>
-            <h1>Tap Stock</h1>
-            {currentlyVisibleState}
-            <button className ="btn btn-primary" onClick={this.handleClick}>{buttonText}</button>
+        <div class="container">
+          <div className="row">
+            <div className='col-6'>
+              {currentlyVisibleState}
+              <button className ="btn btn-primary" onClick={this.handleClick}>{buttonText}</button>
+            </div>
+            <div className='col-3'>
+            </div>
+            {/* <div className='col-3'>
+            <h1>Cart: </h1>
+              <Cart selectedTap={this.state.selectedTap} cart={this.state.cart}/>
+            </div> */}
           </div>
-          <div className='col-3'>
-          </div>
-          {/* <div className='col-3'>
-          <h1>Cart: </h1>
-            <Cart selectedTap={this.state.selectedTap} cart={this.state.cart}/>
-          </div> */}
-
         </div>
       </React.Fragment>
     );

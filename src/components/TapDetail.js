@@ -46,7 +46,6 @@ function TapDetail(props){
           type='number'
           name='quantity'
           placeholder='quantity' />
-          {/* // defaultValue={startingQuantity} */}
           <button className="btn btn-warning" type='submit'>restock</button>
       </form>
       <hr/>
