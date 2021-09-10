@@ -5,9 +5,12 @@ function ReusableForm(props) {
   const startingName = props.tap ? props.tap.name : '';
   const startingBrand = props.tap ? props.tap.brand : '';
   const startingQuantity = props.tap? props.tap.quantity : '';
+  const startingPrice = props.tap? props.tap.price : '';
+  const startingAlcoholContent = props.tap? props.tap.alcoholContent : '';
 
   return (
     <>
+      <h2>Add a new Keg:</h2>
       <form onSubmit={props.formSubmissionHandler}>
         <input
           className="form-control"
@@ -15,7 +18,7 @@ function ReusableForm(props) {
           name='name'
           placeholder='Name' 
           defaultValue={startingName}/>
-        <textarea
+        <input
           className="form-control"
           type='text'
           name='brand'
@@ -27,6 +30,18 @@ function ReusableForm(props) {
           name='quantity'
           placeholder='# of pints' 
           defaultValue={startingQuantity}/>
+        <input
+          className="form-control"
+          type='number'
+          name='price'
+          placeholder='price' 
+          defaultValue={startingPrice}/>
+        <input
+          className="form-control"
+          type='number'
+          name='alcoholContent'
+          placeholder='alcohol content' 
+          defaultValue={startingAlcoholContent}/>
           <button className="btn btn-warning" type='submit'>{props.buttonText}</button>
       </form>
     </>

@@ -9,7 +9,10 @@ function EditTapForm (props) {
     event.preventDefault();
     props.onEditTap({
       name: event.target.name.value, 
-      brand: event.target.brand.value, quantity: event.target.quantity.value, 
+      brand: event.target.brand.value, 
+      quantity: event.target.quantity.value,
+      price: event.target.price.value, 
+      alcoholContent: event.target.alcoholContent.value, 
       id: tap.id
     });
   }

@@ -10,6 +10,8 @@ function NewTapForm(props){
       name: e.target.name.value,
       brand: e.target.brand.value,
       quantity: e.target.quantity.value,
+      price: e.target.price.value,
+      alcoholContent: e.target.alcoholContent.value,
       id: v4()
     });
   }

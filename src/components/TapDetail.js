@@ -17,9 +17,10 @@ function TapDetail(props) {
   return (
     <React.Fragment>
       <h1>{tap.name}</h1>
-      <h5>Brand: {tap.brand}</h5>
-      <h5>Pints available: {quantity} {almostEmpty}</h5>
-      <br/>
+      <h6>Brand: {tap.brand}</h6>
+      <h6>Pints Available: {quantity} {almostEmpty}</h6>
+      <h6>Price: ${tap.price}</h6>
+      <h6>Alcohol Content: {tap.alcoholContent}%</h6>
       <button 
         onClick={ props.onClickingEdit }
         className="btn btn-warning">
@@ -41,7 +42,7 @@ function TapDetail(props) {
           className="form-control"
           type='number'
           name='quantity'
-          placeholder='quantity' />
+          placeholder='pints' />
           <button className="btn btn-info" type='submit'>restock</button>
       </form>
       <hr/>
