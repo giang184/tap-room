@@ -33,11 +33,11 @@ function TapDetail(props){
         onClick={() => onClickingDelete(tap.id)}>
           Delete Tap
       </button>
-      <button 
+      {/* <button 
         className="btn btn-success"
         onClick={() => onClickingBuy(tap)}>
           Buy 1
-      </button>
+      </button> */}
       <hr/>
 
       <form onSubmit={handleRestockTapSubmission}>
