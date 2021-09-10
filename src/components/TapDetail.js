@@ -1,13 +1,10 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-function TapDetail(props){
+function TapDetail(props) {
   const {tap, onClickingDelete, onClickingSell} = props;
-
-  let quantity = tap.quantity;
-  if (quantity === 0) {
-    quantity = "Out of Stock";
-  }
+  const quantity = (tap.quantity === 0)? "Out of Stock" : tap.quantity;
+  const almostEmpty = (tap.quantity < 10 && tap.quantity >0)? "(Almost Empty)" : "";
 
   function handleRestockTapSubmission(event) {
     event.preventDefault();
@@ -21,7 +18,7 @@ function TapDetail(props){
     <React.Fragment>
       <h1>{tap.name}</h1>
       <h5>Description: {tap.description}</h5>
-      <h5>Pints available: {quantity}</h5>
+      <h5>Pints available: {quantity} {almostEmpty}</h5>
       <br/>
       <button 
         onClick={ props.onClickingEdit }
@@ -38,15 +35,14 @@ function TapDetail(props){
         onClick={() => onClickingSell(tap)}>
           Sell 1
       </button>
-      
-
+      <hr/>
       <form onSubmit={handleRestockTapSubmission}>
         <input
           className="form-control"
           type='number'
           name='quantity'
           placeholder='quantity' />
-          <button className="btn btn-warning" type='submit'>restock</button>
+          <button className="btn btn-info" type='submit'>restock</button>
       </form>
       <hr/>
     </React.Fragment>

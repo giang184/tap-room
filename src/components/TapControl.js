@@ -131,16 +131,12 @@ class TapControl extends React.Component {
       <React.Fragment>
         <div class="container">
           <div className="row">
-            <div className='col-6'>
+            <div className='col-4'>
               {currentlyVisibleState}
               <button className ="btn btn-primary" onClick={this.handleClick}>{buttonText}</button>
             </div>
             <div className='col-3'>
             </div>
-            {/* <div className='col-3'>
-            <h1>Cart: </h1>
-              <Cart selectedTap={this.state.selectedTap} cart={this.state.cart}/>
-            </div> */}
           </div>
         </div>
       </React.Fragment>
