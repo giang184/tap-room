@@ -7,8 +7,8 @@ function Tap(props) {
     <React.Fragment>
       <div onClick = {() => props.whenTapClicked(props.id)}>
         <h3>{props.name}</h3>
-        <p>{props.description}</p>
-        <p>Quantity: {props.quantity}</p>
+        <p>Description: {props.description}</p>
+        <p>Pints available: {props.quantity}</p>
         <hr />
       </div>
     </React.Fragment>

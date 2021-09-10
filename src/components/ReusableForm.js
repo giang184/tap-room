@@ -25,7 +25,7 @@ function ReusableForm(props) {
           className="form-control"
           type='number'
           name='quantity'
-          placeholder='quantity' 
+          placeholder='# of pints' 
           defaultValue={startingQuantity}/>
           <button className="btn btn-warning" type='submit'>{props.buttonText}</button>
       </form>

@@ -19,10 +19,10 @@ function TapDetail(props){
 
   return (
     <React.Fragment>
-      <h1>Name: {tap.name}</h1>
-      <h3>Description: {tap.description}</h3>
-      <h3>Quantity: {quantity}</h3>
-      <h3>ID: {tap.id}</h3>
+      <h1>{tap.name}</h1>
+      <h5>Description: {tap.description}</h5>
+      <h5>Pints available: {quantity}</h5>
+      <br/>
       <button 
         onClick={ props.onClickingEdit }
         className="btn btn-success">
@@ -38,7 +38,7 @@ function TapDetail(props){
         onClick={() => onClickingBuy(tap)}>
           Buy 1
       </button> */}
-      <hr/>
+      
 
       <form onSubmit={handleRestockTapSubmission}>
         <input

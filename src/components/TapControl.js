@@ -108,14 +108,12 @@ class TapControl extends React.Component {
     });
   }
 
-
-  render(){
-      
+  render(){      
     let currentlyVisibleState = null;
     let buttonText = null;
     let empty = null;
     if (this.state.masterTapList.length === 0) {
-      empty = "NO MERCH YET";
+      empty = "Nothing added yet";
     }
     
     if (this.state.editing) {
