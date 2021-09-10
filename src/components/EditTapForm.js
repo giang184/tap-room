@@ -9,7 +9,7 @@ function EditTapForm (props) {
     event.preventDefault();
     props.onEditTap({
       name: event.target.name.value, 
-      description: event.target.description.value, quantity: event.target.quantity.value, 
+      brand: event.target.brand.value, quantity: event.target.quantity.value, 
       id: tap.id
     });
   }

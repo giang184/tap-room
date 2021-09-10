@@ -8,7 +8,7 @@ function NewTapForm(props){
     e.preventDefault();
     props.onNewTapCreation({
       name: e.target.name.value,
-      description: e.target.description.value,
+      brand: e.target.brand.value,
       quantity: e.target.quantity.value,
       id: v4()
     });

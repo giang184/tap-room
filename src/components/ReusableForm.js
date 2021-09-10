@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 function ReusableForm(props) {
   const startingName = props.tap ? props.tap.name : '';
-  const startingDescription = props.tap ? props.tap.description : '';
+  const startingBrand = props.tap ? props.tap.brand : '';
   const startingQuantity = props.tap? props.tap.quantity : '';
 
   return (
@@ -18,9 +18,9 @@ function ReusableForm(props) {
         <textarea
           className="form-control"
           type='text'
-          name='description'
-          placeholder='description' 
-          defaultValue={startingDescription}/>
+          name='brand'
+          placeholder='brand' 
+          defaultValue={startingBrand}/>
         <input
           className="form-control"
           type='number'

@@ -17,7 +17,7 @@ function TapDetail(props) {
   return (
     <React.Fragment>
       <h1>{tap.name}</h1>
-      <h5>Description: {tap.description}</h5>
+      <h5>Brand: {tap.brand}</h5>
       <h5>Pints available: {quantity} {almostEmpty}</h5>
       <br/>
       <button 

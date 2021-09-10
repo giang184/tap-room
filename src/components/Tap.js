@@ -9,7 +9,7 @@ function Tap(props) {
     <React.Fragment>
       <div onClick = {() => props.whenTapClicked(props.id)}>
         <h3>{props.name}</h3>
-        <p>Description: {props.description}</p>
+        <p>Brand: {props.brand}</p>
         <p>Pints available: {quantity} <strong>{almostEmpty}</strong></p>
         <hr />
       </div>
@@ -19,7 +19,7 @@ function Tap(props) {
 
 Tap.propTypes = {
   name: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  brand: PropTypes.string.isRequired,
   quantity: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   whenTapClicked: PropTypes.func
