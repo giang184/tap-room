@@ -3,7 +3,6 @@ import NewTapForm from './NewTapForm';
 import TapList from './TapList';
 import TapDetail from './TapDetail';
 import EditTapForm from './EditTapForm';
-// import Cart from './Cart';
 
 class TapControl extends React.Component {
 
@@ -14,36 +13,19 @@ class TapControl extends React.Component {
       masterTapList: [],
       selectedTap: null,
       editing: false,
-
     };
   }
 
-  // handleBuyingTap = (tap) => {
-  //   if (tap.quantity > 0) {
-  //     tap.quantity--;
-  //     const newTap = this.state.cart.filter(m => m.id === this.state.selectedTap.id)[0];
-  //     const newCart = this.state.cart.filter(m => m.id !== this.state.selectedTap.id);
-  //     console.log('newTap', newTap);
-  //     console.log('newCart', newCart)
-  //     if(newTap) {
-  //       newTap.quantity++;
-  //       newCart.push(newTap);
-  //       console.log('newCartTrue', newCart)
-  //     } else {
-  //       const newTap0 = {...tap};
-  //       newTap0.quantity = 1;
-  //       newCart.push(newTap0);
-  //       console.log('newTap0', newTap0)
-  //       console.log('newCartFalse', newCart)
-  //     }
-  //     this.setState({
-  //       cart: newCart,
-  //       selectedTap: tap,
-  //     });
-  //   } else {
-  //     alert('OUT OF STOCK!!!!!!');
-  //   }
-  // }
+  handleSellingTap = (tap) => {
+    if (tap.quantity > 0) {
+      tap.quantity--;
+      this.setState({
+        selectedTap: tap,
+      });
+    } else {
+      alert('OUT OF STOCK!!!!!!');
+    }
+  }
 
   handleEditClick = () => {
     console.log('handleEditClick reached');
@@ -126,7 +108,7 @@ class TapControl extends React.Component {
     else if (this.state.selectedTap != null) {
       currentlyVisibleState = <TapDetail 
         tap = {this.state.selectedTap}
-        // onClickingBuy={this.handleBuyingTap}
+        onClickingSell={this.handleSellingTap}
         onClickingDelete={this.handleDeletingTap}
         onClickingEdit={this.handleEditClick}
         onClickingRestock= {this.handleRestockingTap}

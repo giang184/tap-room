@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 function TapDetail(props){
-  const {tap, onClickingDelete, onClickingBuy} = props;
+  const {tap, onClickingDelete, onClickingSell} = props;
 
   let quantity = tap.quantity;
   if (quantity === 0) {
@@ -25,7 +25,7 @@ function TapDetail(props){
       <br/>
       <button 
         onClick={ props.onClickingEdit }
-        className="btn btn-success">
+        className="btn btn-warning">
         Update Tap
       </button>
       <button 
@@ -33,11 +33,11 @@ function TapDetail(props){
         onClick={() => onClickingDelete(tap.id)}>
           Delete Tap
       </button>
-      {/* <button 
+      <button 
         className="btn btn-success"
-        onClick={() => onClickingBuy(tap)}>
-          Buy 1
-      </button> */}
+        onClick={() => onClickingSell(tap)}>
+          Sell 1
+      </button>
       
 
       <form onSubmit={handleRestockTapSubmission}>
@@ -57,7 +57,7 @@ TapDetail.propTypes = {
   tap: PropTypes.object,
   onClickingDelete: PropTypes.func,
   onClickingEdit: PropTypes.func,
-  onClickingBuy: PropTypes.func,
+  onClickingSell: PropTypes.func,
   onClickingRestock: PropTypes.func
 };
 
