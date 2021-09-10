@@ -1,7 +1,7 @@
 import React from 'react';
 import NewTapForm from './NewTapForm';
 import TapList from './TapList';
-// import TapDetail from './TapDetail';
+import TapDetail from './TapDetail';
 // import EditTapForm from './EditTapForm';
 // import Cart from './Cart';
 
@@ -45,10 +45,10 @@ class TapControl extends React.Component {
   //   }
   // }
 
-  // handleEditClick = () => {
-  //   console.log('handleEditClick reached');
-  //   this.setState({editing: true});
-  // }
+  handleEditClick = () => {
+    console.log('handleEditClick reached');
+    this.setState({editing: true});
+  }
 
   handleClick = () => {
     if (this.state.selectedTap != null) {
@@ -72,18 +72,18 @@ class TapControl extends React.Component {
     });
   }
 
-  // handleChangingSelectedTap = (id) => {
-  //   const selectedTap = this.state.masterTapList.filter(tap => tap.id === id)[0];
-  //   this.setState({selectedTap: selectedTap});
-  // }
+  handleChangingSelectedTap = (id) => {
+    const selectedTap = this.state.masterTapList.filter(tap => tap.id === id)[0];
+    this.setState({selectedTap: selectedTap});
+  }
 
-  // handleDeletingTap = (id) => {
-  //   const newMasterTapList = this.state.masterTapList.filter(tap => tap.id !== id);
-  //   this.setState({
-  //     masterTapList: newMasterTapList,
-  //     selectedTap: null
-  //   });
-  // }
+  handleDeletingTap = (id) => {
+    const newMasterTapList = this.state.masterTapList.filter(tap => tap.id !== id);
+    this.setState({
+      masterTapList: newMasterTapList,
+      selectedTap: null
+    });
+  }
 
   // handleEditingTapInList = (tapToEdit) => {
   //   const editedMasterTapList = this.state.masterTapList
@@ -97,16 +97,16 @@ class TapControl extends React.Component {
   //     console.log('cart', this.state.cart)
   // }
   
-  // handleRestockingTap = (tapToEdit) => {
-  //   const editedMasterTapList = this.state.masterTapList
-  //   .filter(tap => tap.id !== this.state.selectedTap.id)
-  //   .concat(tapToEdit);
-  // this.setState({
-  //     masterTapList: editedMasterTapList,
-  //     editing: false,
-  //     selectedTap: tapToEdit
-  //   });
-  // }
+  handleRestockingTap = (tapToEdit) => {
+    const editedMasterTapList = this.state.masterTapList
+    .filter(tap => tap.id !== this.state.selectedTap.id)
+    .concat(tapToEdit);
+  this.setState({
+      masterTapList: editedMasterTapList,
+      editing: false,
+      selectedTap: tapToEdit
+    });
+  }
 
 
   render(){
@@ -121,25 +121,25 @@ class TapControl extends React.Component {
     //     />
     //   buttonText = "Return to Tap List";
     // } 
-    // else if (this.state.selectedTap != null) {
-    //   currentlyVisibleState = <TapDetail 
-    //     // tap = {this.state.selectedTap}
-    //     // onClickingBuy={this.handleBuyingTap}
-    //     // onClickingDelete={this.handleDeletingTap}
-    //     // onClickingEdit={this.handleEditClick}
-    //     // onClickingRestock= {this.handleRestockingTap}
-    //   />
-    //   buttonText= "Return to Tap List";
-    // } 
     // else 
-    if (this.state.formVisibleOnPage) {
+    if (this.state.selectedTap != null) {
+      currentlyVisibleState = <TapDetail 
+        tap = {this.state.selectedTap}
+        // onClickingBuy={this.handleBuyingTap}
+        onClickingDelete={this.handleDeletingTap}
+        onClickingEdit={this.handleEditClick}
+        onClickingRestock= {this.handleRestockingTap}
+      />
+      buttonText= "Return to Tap List";
+    } 
+    else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewTapForm onNewTapCreation={this.handleAddingNewTap} />
       buttonText = "Return to Tap List"
     } 
     else {
       currentlyVisibleState = <TapList 
         tapList = {this.state.masterTapList} 
-        // onTapSelection={this.handleChangingSelectedTap} 
+        onTapSelection={this.handleChangingSelectedTap} 
         />;
       buttonText = "Add Tap"
     }
