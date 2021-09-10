@@ -1,8 +1,8 @@
 import React from 'react';
 import NewTapForm from './NewTapForm';
 import TapList from './TapList';
-import TapDetail from './TapDetail';
-import EditTapForm from './EditTapForm';
+// import TapDetail from './TapDetail';
+// import EditTapForm from './EditTapForm';
 // import Cart from './Cart';
 
 class TapControl extends React.Component {
@@ -110,33 +110,33 @@ class TapControl extends React.Component {
 
 
   render(){
-    let empty = null;
-    if (this.state.masterTapList.length === 0) {
-      empty = <em>NO TAP ADDED YET</em>
-    }
       
     let currentlyVisibleState = null;
     let buttonText = null;
     
-    if (this.state.editing) {
-      currentlyVisibleState = <EditTapForm 
-        // tap = {this.state.selectedTap} 
-        // onEditTap = {this.handleEditingTapInList} 
-        />
-      buttonText = "Return to Tap List";
-    } else if (this.state.selectedTap != null) {
-      currentlyVisibleState = <TapDetail 
-        // tap = {this.state.selectedTap}
-        // onClickingBuy={this.handleBuyingTap}
-        // onClickingDelete={this.handleDeletingTap}
-        // onClickingEdit={this.handleEditClick}
-        // onClickingRestock= {this.handleRestockingTap}
-      />
-      buttonText= "Return to Tap List";
-    } else if (this.state.formVisibleOnPage) {
+    // if (this.state.editing) {
+    //   currentlyVisibleState = <EditTapForm 
+    //     // tap = {this.state.selectedTap} 
+    //     // onEditTap = {this.handleEditingTapInList} 
+    //     />
+    //   buttonText = "Return to Tap List";
+    // } 
+    // else if (this.state.selectedTap != null) {
+    //   currentlyVisibleState = <TapDetail 
+    //     // tap = {this.state.selectedTap}
+    //     // onClickingBuy={this.handleBuyingTap}
+    //     // onClickingDelete={this.handleDeletingTap}
+    //     // onClickingEdit={this.handleEditClick}
+    //     // onClickingRestock= {this.handleRestockingTap}
+    //   />
+    //   buttonText= "Return to Tap List";
+    // } 
+    // else 
+    if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewTapForm onNewTapCreation={this.handleAddingNewTap} />
       buttonText = "Return to Tap List"
-    } else {
+    } 
+    else {
       currentlyVisibleState = <TapList TapList={this.state.masterTapList} onTapSelection={this.handleChangingSelectedTap} />;
       buttonText = "Add Tap"
     }
@@ -145,7 +145,6 @@ class TapControl extends React.Component {
         <div className="row">
           <div className='col-6'>
             <h1>Tap Stock</h1>
-            {empty}
             {currentlyVisibleState}
             <button className ="btn btn-primary" onClick={this.handleClick}>{buttonText}</button>
           </div>
