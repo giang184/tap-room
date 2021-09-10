@@ -23,7 +23,7 @@ class TapControl extends React.Component {
         selectedTap: tap,
       });
     } else {
-      alert('OUT OF STOCK!!!!!!');
+      alert('CANNOT SELL ANYMORE...OUT OF STOCK!');
     }
   }
 
